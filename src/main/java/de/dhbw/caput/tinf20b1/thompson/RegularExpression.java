@@ -6,6 +6,10 @@ abstract class RegularExpression {
 		super( );
 	}
 	
+	static RegularExpression from( String string ){
+		return Parser.parse( string );
+	}
+	
 	abstract FiniteStateAutomaton generateFSA( );
 	
 	
