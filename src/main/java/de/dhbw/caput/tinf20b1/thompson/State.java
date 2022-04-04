@@ -37,19 +37,8 @@ final class State {
 	
 	static Set<State> resolveEpsilonTransitions( State start ){
 		Queue<State> queue = new LinkedList<>( );
-		Set<State> visited = new HashSet<>( );
 		queue.add( start );
-		visited.add( start );
-		while( !queue.isEmpty() ){
-			State state = queue.remove( );
-			for( State target : state.epsilonTransitions ){
-				if( !visited.contains(target) ){
-					queue.add( target );
-					visited.add( target );
-				}
-			}
-		}
-		return visited;
+		return resolveEpsilonTransitions( queue );
 	}
 	
 	static Set<State> resolveEpsilonTransitions( Queue<State> queue ){
