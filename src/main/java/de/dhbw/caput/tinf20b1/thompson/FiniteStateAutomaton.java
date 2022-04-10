@@ -28,13 +28,13 @@ final class FiniteStateAutomaton {
 		return controller.state().contains( ACCEPTING_STATE );
 	}
 	
-	private Controller instantiate( ){
+	Controller instantiate( ){
 		return new Controller( );
 	}
 	
 	
 	
-	private final class Controller {
+	final class Controller {
 		
 		private Set<State> states;
 		
@@ -47,7 +47,7 @@ final class FiniteStateAutomaton {
 			return states;
 		}
 		
-		private void process( char symbol ){
+		void process( char symbol ){
 			Set<State> nextStates = new HashSet<>( );
 			for( State state : states ){
 				nextStates.addAll( state.reactOn(symbol) );
@@ -56,6 +56,18 @@ final class FiniteStateAutomaton {
 			queue.addAll( nextStates );
 			nextStates = State.resolveEpsilonTransitions( queue );
 			states = nextStates;
+		}
+		
+		boolean isActive( ){
+			return !states.isEmpty();
+		}
+		
+		boolean acceptsInput( ){
+			return states.contains( ACCEPTING_STATE );
+		}
+		
+		FiniteStateAutomaton definition( ){
+			return FiniteStateAutomaton.this;
 		}
 		
 	}
