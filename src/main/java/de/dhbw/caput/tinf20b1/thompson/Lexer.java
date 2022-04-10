@@ -1,11 +1,14 @@
 package de.dhbw.caput.tinf20b1.thompson;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-class Lexer {
+class Lexer implements Serializable {
+	
+	private static final long serialVersionUID = -2277406718020843089L;
 	
 	private Map<FiniteStateAutomaton, Token.Type> automata;
 	

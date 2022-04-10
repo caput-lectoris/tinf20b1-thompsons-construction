@@ -1,6 +1,10 @@
 package de.dhbw.caput.tinf20b1.thompson;
 
-class Token {
+import java.io.Serializable;
+
+class Token implements Serializable {
+	
+	private static final long serialVersionUID = 1526238583359052145L;
 	
 	public final Token.Type TYPE;
 	public final String LEXEME;
@@ -14,8 +18,13 @@ class Token {
 		END = end;
 	}
 	
-	static class Type {
-		private final String ID;
+	
+	
+	static class Type implements Serializable {
+		
+		private static final long serialVersionUID = -505862034133107194L;
+		
+		final String ID;
 		
 		Type( String id ){
 			super( );
@@ -26,6 +35,7 @@ class Token {
 		public String toString( ){
 			return ID;
 		}
+		
 	}
 	
 	@Override

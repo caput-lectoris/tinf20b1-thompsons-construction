@@ -1,5 +1,6 @@
 package de.dhbw.caput.tinf20b1.thompson;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,7 +10,9 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-final class State {
+final class State implements Serializable {
+	
+	private static final long serialVersionUID = 1943653874610942916L;
 	
 	private Map<Character, Set<State>> transitions;
 	private List<State> epsilonTransitions;

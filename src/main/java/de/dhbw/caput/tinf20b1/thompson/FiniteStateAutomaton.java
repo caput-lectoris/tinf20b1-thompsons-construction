@@ -1,11 +1,14 @@
 package de.dhbw.caput.tinf20b1.thompson;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
-final class FiniteStateAutomaton {
+final class FiniteStateAutomaton implements Serializable {
+	
+	private static final long serialVersionUID = 3495083507867329266L;
 	
 	public final State INITIAL_STATE;
 	public final State ACCEPTING_STATE;
