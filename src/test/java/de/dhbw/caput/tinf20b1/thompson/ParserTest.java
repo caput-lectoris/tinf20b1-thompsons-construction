@@ -97,17 +97,19 @@ final class ParserTest {
 		Lexer.Instance lexerInstance = lexer.runOn( "public 101" );
 		
 		Token token;
-		token = lexerInstance.nextToken( );
+		token = lexerInstance.lookAhead( );
 		assertThat( token.TYPE.ID ).isEqualTo( keyword.ID );
 		assertThat( token.LEXEME ).isEqualTo( "public" );
 		assertThat( token.BEGIN ).isEqualTo( 0 );
 		assertThat( token.END ).isEqualTo( 6 );
-		token = lexerInstance.nextToken( );
+		lexerInstance.advance();
+		token = lexerInstance.lookAhead( );
 		assertThat( token.TYPE.ID ).isEqualTo( whitespace.ID );
 		assertThat( token.LEXEME ).isEqualTo( " " );
 		assertThat( token.BEGIN ).isEqualTo( 6 );
 		assertThat( token.END ).isEqualTo( 7 );
-		token = lexerInstance.nextToken( );
+		lexerInstance.advance();
+		token = lexerInstance.lookAhead( );
 		assertThat( token.TYPE.ID ).isEqualTo( binary.ID );
 		assertThat( token.LEXEME ).isEqualTo( "101" );
 		assertThat( token.BEGIN ).isEqualTo( 7 );

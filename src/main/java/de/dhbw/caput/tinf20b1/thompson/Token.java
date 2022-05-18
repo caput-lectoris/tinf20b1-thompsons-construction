@@ -2,7 +2,7 @@ package de.dhbw.caput.tinf20b1.thompson;
 
 import java.io.Serializable;
 
-class Token implements Serializable {
+public class Token implements Serializable {
 	
 	private static final long serialVersionUID = 1526238583359052145L;
 	
@@ -20,13 +20,13 @@ class Token implements Serializable {
 	
 	
 	
-	static class Type implements Serializable {
+	public static class Type implements Serializable {
 		
 		private static final long serialVersionUID = -505862034133107194L;
 		
 		final String ID;
 		
-		Type( String id ){
+		public Type( String id ){
 			super( );
 			ID = id;
 		}
